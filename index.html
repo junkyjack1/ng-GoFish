@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="content/styles/style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <h1>Go Fish Anyone?</h1>
+
+    <div ng-app="goFish" ng-controller="goFishCtrl">
+
+        <!-- Game Buttons -->
+        <div id="gameButtons">
+            <button ng-click="newGame()">New Game</button>
+        </div>
+
+        <!-- Computer's Info -->
+        <h3>Computer Info</h3>
+        <div class="info">
+            <div class="data">
+                <div>Info</div>
+                <div>
+                    Cards: {{computer.cards.length}} <br />
+                    Matches: {{computer.matches.length}}
+                </div>
+            </div>
+
+            <div class="matches">
+                <div>
+                    Matches
+                </div>
+                <div>
+                    <table>
+                        <tr ng-repeat="match in computer.matches track by $index">
+                            <td>
+                                <match info="match"></match>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Console -->
+        <h3 style="margin-bottom:0;"> Game Log</h3>
+        <h4 style="margin-top:5px;">Cards Left: {{cards.length}}</h4>
+        <div id="console">
+            <div id="log">
+                <table>
+                    <tr ng-repeat="log in logs track by $index">
+                        <td><log info="log"></log></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Player's Info -->
+        <h3>Your Info</h3>
+        <div class="info">
+            <div class="data">
+                <div>Info</div>
+                <div>
+                    Cards: {{you.cards.length}} <br />
+                    Matches: {{you.matches.length}}
+                </div>
+            </div>
+            <div class="matches">
+                <div>
+                    Matches
+                </div>
+                <div>
+                    <table>
+                        <tr ng-repeat="match in you.matches">
+                            <td>
+                                <match info="match"></match>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="playerCards">
+            <div class="card" ng-repeat="card in you.cards track by $index">
+                <card info="card"></card>
+                <button ng-click="processTurn(card)" ng-disabled="gameOver">Ask</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Lib Scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <!--App Scripts-->
+    <script src="app/app.js"></script>
+
+    <!--Directive Scripts-->
+    <script src="app/directives/card-directive.js"></script>
+    <script src="app/directives/log-directive.js"></script>
+    <script src="app/directives/match-directive.js"></script>
+
+    <!--Model Scripts-->
+    <script src="app/models/card.js"></script>
+    <script src="app/models/log.js"></script>
+    <script src="app/models/match.js"></script>
+    <script src="app/models/player.js"></script>
+
+    <!--Service Scripts-->
+    <script src="app/services/cardSvc.js"></script>
+    <script src="app/services/dealerSvc.js"></script>
+    <script src="app/services/gameLogSvc.js"></script>
+
+    <!--Controller Scripts-->
+    <script src="app/controllers/goFishCtrl.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿/* Styles go here */
+
+.info,
+#console {
+  border: 1px solid black;
+  width: 575px;
+}
+
+.info {
+  height: 150px;
+}
+
+#console {
+  height: 150px;
+}
+
+.info div{
+  float: left;
+}
+
+.info .data {
+  width:160px;
+}
+
+.info div > div:not(:last-child) {
+  border-bottom:1px solid black;
+  font-weight:700;
+  width: 100%;
+}
+
+.info div > div {
+  padding:10px;
+}
+
+.info .matches {
+    height:100%;
+    width:395px;
+    border-left: 1px black solid;
+}
+
+.info .matches > div:last-child{
+  height:91px;
+  overflow-y:scroll;
+  width: 99.5%;
+}
+
+
+.info .matches table {
+  margin:0;
+  padding-left:0;
+  padding-right:0;
+  width:100%;
+}
+
+.info .matches tr:nth-child(even) {
+  background:lightgray;
+}
+
+#log {
+  height: 149px;
+  overflow-y: scroll;
+}
+
+#playerCards {
+  max-width:575px; 
+}
+.card {
+  float: left;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.Hearts, .Diamonds {
+  color:red;
+}
+
+.Clubs, .Spades {
+  color:Black;
+}
+
+.You {
+  color: blue;
+}
+
+.Computer {
+  color: purple;
+}
+
+.Dealer {
+  color: green;
+}
